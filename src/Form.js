@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Deposit,Withdraw,Mobile_update,Name_update,Reset} from "./Action";
 
 
 function Form() {
@@ -23,7 +24,7 @@ function Form() {
               <button className="btn btn-primary"
               onClick={
                 ()=>{
-                    dispatch({type:"deposit",payload:amount})
+                    dispatch(Deposit(amount))
                     setAmount("") 
                 }
               }
@@ -33,7 +34,7 @@ function Form() {
               <button className="btn btn-danger"
                onClick={
                 ()=>{
-                    dispatch({type:"withdraw",payload:amount})
+                    dispatch(Withdraw(amount))
                     setAmount("") 
                 }
               }
@@ -55,7 +56,7 @@ function Form() {
               <button className="btn btn-primary"
               onClick={
                 ()=>{
-                    dispatch({type:"name_update",payload:name})
+                    dispatch(Name_update(name))
                     setName("") 
                 }
               }
@@ -79,7 +80,7 @@ function Form() {
               <button className="btn btn-primary"
               onClick={
                 ()=>{
-                    dispatch({type:"mobile_update",payload:mobile})
+                    dispatch(Mobile_update(mobile))
                     setMobile("") 
                 }
               }
@@ -91,7 +92,7 @@ function Form() {
         <button className="btn btn-danger mt-2" 
         onClick={
             ()=>{
-                dispatch({type:"reset"})
+                dispatch(Reset())
             }
         }
         >Reset</button>

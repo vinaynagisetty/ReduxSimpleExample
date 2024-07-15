@@ -8,6 +8,7 @@ function Form() {
    let[amount,setAmount]= useState()
    let[name,setName]= useState()
    let[mobile,setMobile]= useState()
+   let [transactionId,updateTransactionId]=useState(1)
     return (
       <div className="container m-4">
         <div className="row">
@@ -25,7 +26,19 @@ function Form() {
               onClick={
                 ()=>{
                     dispatch(Deposit(amount))
+                    updateTransactionId(transactionId+1)
                     setAmount("") 
+                  dispatch(
+                    {
+                      type: "Add_transaction",
+                      payload: {
+                        id: transactionId,
+                        amount: amount,
+                        type: "Credit",
+                        date: new Date()
+                      }
+                    }
+                  )
                 }
               }
               >Deposit</button>
@@ -35,7 +48,20 @@ function Form() {
                onClick={
                 ()=>{
                     dispatch(Withdraw(amount))
+                    updateTransactionId(transactionId+1)
+                
                     setAmount("") 
+                  dispatch(
+                    {
+                      type: "Add_transaction",
+                      payload: {
+                        id: transactionId,
+                        amount: amount,
+                        type: "Debit",
+                        date: new Date()
+                      }
+                    }
+                  )
                 }
               }
               >Withdraw</button>

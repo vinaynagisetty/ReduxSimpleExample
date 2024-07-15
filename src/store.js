@@ -26,8 +26,8 @@ function AccountReducer(state=intialAccount,action){
 }
 function TransactionReducer(state=[],action){
     switch(action.type){
-        case "Add":
-            return [...state,{amount:action.payload.amount,type:action.payload.type}]
+        case "Add_transaction":
+            return [...state,{id:action.payload.id,amount:action.payload.amount,type:action.payload.type,date:action.payload.date}]
         default:
             return state    
     }

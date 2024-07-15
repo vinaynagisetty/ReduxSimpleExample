@@ -8,6 +8,7 @@ function Account() {
        return state;
     }
  );
+ console.log(data)
     return (
       <div className="container ">
        
@@ -28,13 +29,13 @@ function Account() {
             <tbody>
                 <tr>
                     <td>
-                       {data.balance}
+                       {data.Account.balance}
                     </td>
                     <td>
-                    {data.name}
+                    {data.Account.name}
                     </td>
                     <td>
-                    {data.phoneNumber}
+                    {data.Account.phoneNumber}
                     </td>
                 </tr>
             </tbody>
